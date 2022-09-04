@@ -1,0 +1,30 @@
+.contenedor{
+    background-color: white;
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+nav{
+    background-color: #81D2C7!important;
+}
+*{
+    font-family: 'Comfortaa', cursive;
+}
+nav div a{
+    color: #000!important;
+}
+.titulo-principal{
+    font-size: 130px;
+    color: #7389AE;
+    
+}
+
+.info-nosotros{
+    margin: 19px;
+    color:#416788;
+}

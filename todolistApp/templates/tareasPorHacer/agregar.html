@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %} Agregar Tarea {% endblock %}
+{% block contenido %}
+
+<div class="card">
+  <div class="card-header">
+    Agregar Tarea
+    
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Datos de la tarea</h4>
+    <label class="">La fecha debe ser en formato AAAA-MM-DD</label>
+    {% include 'tareasPorHacer/form.html' %}
+  </div>
+</div>
+
+
+{% endblock %}

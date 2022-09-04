@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %} Editar Tareas {% endblock %}
+{% block contenido %}
+
+<div class="card">
+  <div class="card-header">
+    Editar Tarea
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Datos a editar</h4>
+    <label class="card-title">La fecha debe ser en formato AAAA-MM-DD</label>
+    {% include 'tareasPorHacer/form.html' %}
+  </div>
+</div>
+
+
+
+{% endblock %}

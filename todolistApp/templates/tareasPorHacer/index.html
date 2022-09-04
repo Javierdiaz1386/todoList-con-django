@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block titulo %} Tareas Por Hacer {% endblock %}
+{% block contenido %}
+
+<div class="card">
+  <div class="card-header">
+    <a href="{% url 'crearTarea' %}" role="bu
+    " class="btn btn-success">Crear Tarea</a>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Agregar una tarea</h4>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tarea</th>
+          <th>Fecha Incio</th>
+          <th>Plazo para terminar</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+        <tbody class="table-group-divider">
+            {% for tareas in tareas %}
+            <tr>
+              <td>{{tareas.id}}</td>
+              <td>{{tareas.nombreTarea}}</td>
+              <td>{{tareas.fechaIncio}}</td>
+              <td>{{tareas.plazoParaTerminar}}</td>
+              <td><a href="{% url 'editarTarea' tareas.id %}" class="btn btn-info" role="button">Editar</a> | <a href="{% url 'eliminarTarea' tareas.id %}" class="btn btn-danger" role="button">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+  </div>
+</div>
+
+
+{% endblock %}

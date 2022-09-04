@@ -1,0 +1,17 @@
+<form enctype="multipart/form-data"  method="post">
+  {% csrf_token %}
+  {% for campo in formulario %} 
+  <div class=" mb-3">
+    <label for="" class="form-label">{{ campo.label }}</label>
+    
+    <input value="{{ campo.value | default:'' }}" type="{{ campo.field.widget.input_type }}" name="{{ campo.name }}" class="form-control" aria-describedby="helpId" placeholder="{{ campo.label }}" value="">
+  </div>
+  <div class="col-12 help-text">
+    {{ campo.errors }}
+
+  </div>
+  
+  {% endfor %}
+  <input class="btn btn-success" type="submit" value="Agregar/Editar">
+  <a class="btn btn-danger" href="{% url 'tareas' %}" role="button">Cancelar</a>
+</form>
