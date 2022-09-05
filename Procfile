@@ -1,1 +1,1 @@
-web: gunicorn hospitalTeamJavi.wsgi
+web: gunicorn todoList.wsgi
