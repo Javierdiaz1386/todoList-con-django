@@ -21,15 +21,21 @@
         </tr>
       </thead>
         <tbody class="table-group-divider">
+          {% if tareas %}
             {% for tareas in tareas %}
             <tr>
               
               <td>{{tareas.nombreTarea}}</td>
-              <td>{{tareas.fechaIncio}}</td>
-              <td>{{tareas.plazoParaTerminar}}</td>
+              <td>{{tareas.fechaIncio.year}}/{{tareas.fechaIncio.month}}/{{tareas.fechaIncio.day}}</td>
+              <td>{{tareas.plazoParaTerminar.year}}/{{tareas.plazoParaTerminar.month}}/{{tareas.plazoParaTerminar.day}}</td>
               <td><a href="{% url 'editarTarea' tareas.id %}" class="btn btn-info" role="button">Editar</a> | <a href="{% url 'eliminarTarea' tareas.id %}" class="btn btn-danger" role="button">Eliminar</a></td>
             </tr>
             {% endfor %}
+            {% else %}
+              <p class='errors'>No tienes tareas pendientes.</p>
+          {% endif %}
+          
+          
           </tbody>
       </table>
   </div>

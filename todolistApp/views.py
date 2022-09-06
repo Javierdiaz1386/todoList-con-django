@@ -25,6 +25,7 @@ def crearTarea(request):
 def editarTarea(request, id):
     tarea = tareasTable.objects.get(id=id)
     formulario = TodoListForm(request.POST or None, instance=tarea)
+    
     if formulario.is_valid() and request.method == 'POST':
         formulario.save()
         return redirect('tareas')
