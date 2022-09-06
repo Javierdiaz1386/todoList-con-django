@@ -28,3 +28,7 @@ nav div a{
     margin: 19px;
     color:#416788;
 }
+
+.errors{
+    color: red!important;
+}
