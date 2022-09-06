@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*_%78qm(u@n^%-@+_4izx4dju2k-@@k1z-x@rdc&5=v#@7()u6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['todolist-javier.herokuapp.com']
+ALLOWED_HOSTS = ['todolist-javier.herokuapp.com','.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -129,3 +129,5 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'todoList/static'),
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import django_heroku
 django_heroku.settings(locals())
+STATICFILES_DIRS = [BASE_DIR/'static',]
+STATIC_ROOT = BASE_DIR/'staticfiles'
