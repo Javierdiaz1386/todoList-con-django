@@ -1,8 +1,6 @@
-
-
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
 
 from .models import tareasTable
 from .forms import TodoListForm
@@ -33,16 +31,22 @@ def crearTarea(request):
 
 def editarTarea(request, id):
     tarea = tareasTable.objects.get(id=id)
+    usuario = request.user
     formulario = TodoListForm(request.POST or None, instance=tarea)
-    
-    if formulario.is_valid() and request.method == 'POST':
-        formulario.save()
-        return redirect('tareas')
+    if str(usuario) == str(tarea.usuario):
+
+        if formulario.is_valid() and request.method == 'POST':
+            formulario.save()
+            return redirect('tareas')
+    else:
+        redirect('tareas')
     return render(request, 'tareasPorHacer/editar.html', { 'formulario' : formulario })
 
 def eliminarTareas(request, id):
     tarea = tareasTable.objects.get(id=id)
-    tarea.delete()
+    usuario= request.user
+    if str(usuario) == str(tarea.usuario):
+        tarea.delete()
     return redirect('tareas')
 
 def nosotros(request):
