@@ -38,3 +38,6 @@ def eliminarTareas(request, id):
 
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
+
+def login(request):
+    return render(request, 'registration/login.html')
