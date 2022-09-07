@@ -15,7 +15,7 @@
   {% endif  %}
   {% endfor %}
 
-  <input  value="{{ user.username }}" type="hidden" name="usuario" class="form-control mb-3" aria-describedby="helpId" placeholder="" >
+  <input  value="{{ user.username | default:'' }}" type="hidden" name="usuario" class="form-control mb-3" aria-describedby="helpId" placeholder="" >
   <input class="btn btn-success" type="submit" value="Agregar/Editar">
   <a class="btn btn-danger" href="{% url 'tareas' %}" role="button">Cancelar</a>
 </form>
