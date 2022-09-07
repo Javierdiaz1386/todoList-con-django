@@ -1,6 +1,7 @@
 
 
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 
 from .models import tareasTable
@@ -9,11 +10,17 @@ from .forms import TodoListForm
 def inicio(request):
     
     return render(request, 'paginas/index.html' )
-
+@login_required(login_url='/InicioSesion/')
 def tareas(request):
+
+
+
+
     tareas = tareasTable.objects.all()
     
     return render(request, 'tareasPorHacer/index.html', {'tareas': tareas})
+
+
 
 def crearTarea(request):
     formulario = TodoListForm(request.POST or None)
@@ -21,6 +28,8 @@ def crearTarea(request):
         formulario.save()
         return redirect('tareas')
     return render(request, 'tareasPorHacer/agregar.html', {'formulario': formulario})
+
+
 
 def editarTarea(request, id):
     tarea = tareasTable.objects.get(id=id)

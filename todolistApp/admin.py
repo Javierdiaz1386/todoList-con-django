@@ -1,4 +1,4 @@
 from django.contrib import admin
-from todolistApp import models
+from .models import tareasTable
 
-admin.site.register(models.tareasTable)
+admin.site.register(tareasTable)
