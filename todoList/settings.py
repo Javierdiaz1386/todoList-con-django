@@ -130,7 +130,7 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'todoList/static'),
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import django_heroku
-from django.contrib.messages import constants
+
 django_heroku.settings(locals())
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
